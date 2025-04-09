@@ -1,4 +1,4 @@
 module.exports = {
-  SERVER_PORT: process.env.SERVER_PORT || 3000,
-  DOMAIN: 'http://static.naver.net/clova/service/native_extensions/dice'
+  SERVER_PORT: process.env.SERVER_PORT || 443,
+  DOMAIN: 'https://port-0-clova-extension-m70rcpyrd73d7d9c.sel4.cloudtype.app/'
 }
