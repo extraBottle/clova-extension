@@ -198,8 +198,8 @@ const clovaReq = function (httpReq, httpRes, next) {
   cekRequest = new CEKRequest(httpReq)
   cekRequest.do(cekResponse)
   console.log(`CEKResponse: ${JSON.stringify(cekResponse)}`)
-  console.log(`httpReq: ${httpReq}`)
-  console.log(`httpRes: ${httpRes}`)
+  console.log(`httpReq: ${JSON.stringify(httpReq)}`)
+  console.log(`httpRes: ${JSON.stringify(httpRes)}`)
   return httpRes.send(cekResponse)
 };
 
