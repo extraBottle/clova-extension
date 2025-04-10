@@ -53,7 +53,7 @@ class CEKRequest {
     this.request = httpReq.body.request // Extract request details (e.g., type, intent).
     this.context = httpReq.body.context // Extract context information (e.g., device info).
     this.session = httpReq.body.session // Extract session information (e.g., attributes).
-    console.log(`CEK Request: ${JSON.stringify(this.context)}, ${JSON.stringify(this.session)}`)
+    console.log(`CEK Request: ${JSON.stringify(httpReq.headers)}, ${JSON.stringify(this.request)}`)
   }
 
   do(cekResponse) {
