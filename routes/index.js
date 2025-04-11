@@ -46,6 +46,7 @@ router.post('/vol', async(req, res) => {
         }
         const response = await axios.post(url, body, header);
         console.log('push success! =', response.data);
+        res.sendStatus(200);
     }
     catch(e) {
         console.log('err: ', e.message);
