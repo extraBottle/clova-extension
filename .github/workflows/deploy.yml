@@ -1,0 +1,44 @@
+name: Deploy to cloudtype
+on:
+  schedule:
+    - cron: '0 21 * * *'
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Connect deploy key
+        uses: cloudtype-github-actions/connect@v1
+        with:
+          token: ${{ secrets.CLOUDTYPE_TOKEN }}
+          ghtoken: ${{ secrets.GHP_TOKEN }}
+      - name: Deploy
+        uses: cloudtype-github-actions/deploy@v1
+        with:
+          token: ${{ secrets.CLOUDTYPE_TOKEN }}
+          project: extra_bottle/my-project
+          stage: main
+          yaml: >
+            name: clova-extension
+            app: node@22
+            options:
+              env:
+                - name: DOMAIN
+                  value: ${{ secrets.DOMAIN }}
+                - name: SERVER_PORT
+                  value: "1999"
+                - name: CLOVA_SECRET
+                  value: ${{ secrets.CLOVA_SECRET }}
+              ports: "1999"
+              install: npm install
+              start: node app.js
+              buildenv: []
+            context:
+              git:
+                url: git@github.com:${{ github.repository }}.git
+                ref: ${{ github.ref }}
+              preset: node
