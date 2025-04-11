@@ -35,6 +35,8 @@ jobs:
                   value: "1999"
                 - name: CLOVA_SECRET
                   value: ${{ secrets.CLOVA_SECRET }}
+                - name: CLOVA_ID
+                  value: $ {{ secrets.CLOVA_ID }}
               ports: "1999"
               buildenv: []
             context:
