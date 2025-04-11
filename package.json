@@ -1,5 +1,5 @@
 {
-  "name": "clova-ext-sound",
+  "name": "clova-extension",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -9,11 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.3",
-    "cookie-parser": "^1.4.7",
-    "express": "^4.21.2",
-    "lodash": "^4.17.4",
+    "axios": "^1.8.4",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "lodash": "^4.17.21",
     "morgan": "^1.10.0",
-    "uuid": "^3.1.0"
+    "uuid": "^11.1.0"
   }
 }

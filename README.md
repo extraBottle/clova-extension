@@ -20,7 +20,7 @@
 - 요청 예시)
 ```
 {
-  "version": "0.1.0",
+  "version": "1.0.0",
   "session": {
     "sessionId": "55ca6ee4-72dd-4694-b30f-4b49e238634f",
     "user": {
