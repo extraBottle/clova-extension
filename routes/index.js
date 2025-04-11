@@ -1,6 +1,9 @@
 const express = require('express');
+const axios = require('axios');
 const clova = require('../clova');
 const router = express.Router();
+
+require('dotenv').config();
 
 router.post('/', (req, res) => {
     const cmd = req.body.header.name;
@@ -26,6 +29,27 @@ router.post('/token',function(req,res){
 	"refresh_token":"testRefresh"
   }
   `);
+});
+router.post('/vol', async(req, res) => {
+    const url = 'https://apis.naver.com/clovahome/clova-platform/sendNotification'
+    try {
+        const header = {
+            headers: {
+                'X-Clova-Extension-Id': 'com.home.extrabottle',
+                'X-Clova-Extension-Secret': process.env.CLOVA_SECRET,
+
+            }
+        }
+        const body = {
+            'applianceId': 'device-001',
+            'messageId': 'test-msg-a383340b2aed4a11894b3e6da1a3b4a9'
+        }
+        const response = await axios.post(url, body, header);
+        console.log('push success! =', response.data);
+    }
+    catch(e) {
+        console.log('err: ', e.message);
+    }
 });
 
 function DiscoverAppliancesRequest(req, res) {
