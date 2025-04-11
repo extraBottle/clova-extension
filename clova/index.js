@@ -62,7 +62,6 @@ class CEKResponse {
     };
     this.payload= {};
     }
-  }
 
   // 텍스트 읽어주기 
   setSimpleSpeechText(outputText) {
