@@ -54,14 +54,13 @@ class CEKRequest {
 
 class CEKResponse {
   constructor () {
-    this = {
-      "header": {
-        "messageId": '',
-        "namespace": 'ClovaHome',
-        "name": '',
-        "payloadVersion": '1.0'
-      },
-      "payload": {}   
+    this.header ={
+      "messageId": '',
+      "namespace": 'ClovaHome',
+      "name": '',
+      "payloadVersion": '1.0'
+    };
+    this.payload= {};
     }
   }
 
