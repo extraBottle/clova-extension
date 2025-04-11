@@ -22,10 +22,12 @@ jobs:
           token: ${{ secrets.CLOUDTYPE_TOKEN }}
           project: extra_bottle/my-project
           stage: main
-          yaml: >
+          yaml: |
             name: clova-extension
             app: node@22
             options:
+              install: npm install
+              start: node app.js
               env:
                 - name: DOMAIN
                   value: ${{ secrets.DOMAIN }}
@@ -34,11 +36,8 @@ jobs:
                 - name: CLOVA_SECRET
                   value: ${{ secrets.CLOVA_SECRET }}
               ports: "1999"
-              install: npm install
-              start: node app.js
               buildenv: []
             context:
               git:
                 url: git@github.com:${{ github.repository }}.git
                 ref: ${{ github.ref }}
-              preset: node
