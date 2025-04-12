@@ -1,10 +1,13 @@
+const express = require('express');
 const axios = require('axios');
+require('dotenv').config();
+
+app.use(express.json());
 
 const btcVol = async(req, res) => {
     // authorize tradingview only
-    const ipList = ['52.89.214.238', '34.212.75.30', '54.218.53.128', '52.32.178.7'];
     const url = 'https://apis.naver.com/clovahome/clova-platform/sendNotification'
-    if(ipList.includes(req.ip)){
+    if(req.body.text == process.env.BTC_MSG){
         try {
             const header = {
                 headers: {
@@ -26,7 +29,7 @@ const btcVol = async(req, res) => {
         }
     }
     else{
-        res.status(200).send({ msg: "invalid ip"});
+        res.status(200).send({ msg: "unAuthorized"});
     }
 }
 
