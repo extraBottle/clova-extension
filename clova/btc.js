@@ -4,7 +4,7 @@ require('dotenv').config();
 const btcVol = async(req, res) => {
     // authorize tradingview only
     const url = 'https://apis.naver.com/clovahome/clova-platform/sendNotification'
-    if(JSON.stringify(req.body.text) == "거래량이 매우 높아요!"){
+    if(req.body.text == "거래량이 매우 높아요!"){
         try {
             const header = {
                 headers: {
@@ -26,7 +26,7 @@ const btcVol = async(req, res) => {
         }
     }
     else{
-        console.log('invalid body', JSON.stringify(req.body.text))
+        console.log('invalid body', req.body.text)
         res.status(200).send({ msg: "unAuthorized"});
     }
 }
