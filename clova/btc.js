@@ -4,7 +4,7 @@ require('dotenv').config();
 const btcVol = async(req, res) => {
     // authorize tradingview only
     const url = 'https://apis.naver.com/clovahome/clova-platform/sendNotification'
-    if(JSON.stringify(req.body.text) == process.env.BTC_MSG){
+    if(JSON.stringify(req.body.text) == "거래량이 매우 높아요!"){
         try {
             const header = {
                 headers: {

@@ -37,8 +37,6 @@ jobs:
                   value: ${{ secrets.CLOVA_SECRET }}
                 - name: CLOVA_ID
                   value: $ {{ secrets.CLOVA_ID }}
-                - name: BTC_MSG
-                  value: $ {{ secrets.BTC_MSG }}
               ports: "1999"
               buildenv: []
             context:
