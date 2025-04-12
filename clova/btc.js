@@ -1,8 +1,5 @@
-const express = require('express');
 const axios = require('axios');
 require('dotenv').config();
-
-app.use(express.json());
 
 const btcVol = async(req, res) => {
     // authorize tradingview only
